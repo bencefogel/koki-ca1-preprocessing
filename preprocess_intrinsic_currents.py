@@ -2,10 +2,6 @@ import numpy as np
 import pandas as pd
 
 
-data_dir = 'L:/cluster_seed30/raw_data'
-currents = ['nax', 'nad', 'kap', 'kad', 'kdr', 'kslow', 'car', 'passive', 'capacitive']
-segment_area = pd.read_csv(data_dir + '/segment_area.csv', index_col=0)
-
 def change_unit_na(currents: pd.DataFrame, area: pd.DataFrame) -> pd.DataFrame:
     """
     Convert membrane currents to nA from mA/cm2.
@@ -29,7 +25,7 @@ def change_unit_na(currents: pd.DataFrame, area: pd.DataFrame) -> pd.DataFrame:
 
 def preprocess_intrinsic_currents(data_dir, currents, segment_area):
     dfs = []
-    for curr in currents[:2]:
+    for curr in currents[:1]:
         segments = np.load(data_dir + f'/intrinsic_segments/{curr}_segments.npy')
         values = np.load(data_dir + f'/intrinsic_currents/{curr}_currents.npy')
         df = pd.DataFrame(data=values, index=segments)
