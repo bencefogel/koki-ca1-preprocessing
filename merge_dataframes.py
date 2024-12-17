@@ -10,13 +10,13 @@ from preprocess_synaptic_currents import preprocess_synaptic_currents
 from utils import save_in_chunks
 
 
-data_dir = 'L:/cluster_seed30/raw_data'
+input_dir = 'L:/cluster_seed30/raw_data'
 intrinsic_currents = ['nax', 'nad', 'kap', 'kad', 'kdr', 'kslow', 'car', 'passive', 'capacitive']
 synaptic_currents = ['AMPA', 'NMDA', 'GABA', 'GABA_B']
-segment_area = pd.read_csv(data_dir + '/segment_area.csv', index_col=0)
+segment_area = pd.read_csv(input_dir + '/segment_area.csv', index_col=0)
 
-dfs_intrinsic = preprocess_intrinsic_currents(data_dir, intrinsic_currents, segment_area)
-dfs_synaptic = preprocess_synaptic_currents(data_dir, synaptic_currents)
+dfs_intrinsic = preprocess_intrinsic_currents(input_dir, intrinsic_currents, segment_area)
+dfs_synaptic = preprocess_synaptic_currents(input_dir, synaptic_currents)
 
 # Create merged dataframe
 dfs = dfs_intrinsic + dfs_synaptic
