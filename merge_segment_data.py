@@ -15,6 +15,15 @@ index_saved = False
 
 
 def merge_soma_segments(index, values):
+    """
+    Merges soma segments in the dataset.
+        Parameters:
+            index (df): The multiindex DataFrame containing 'segment' and 'itype' columns.
+            values (array): The array of membrane current values corresponding to the multiindex.
+
+        Returns:
+            df_updated (df): A DataFrame with soma segments merged and other segments preserved.
+    """
     # Create a DataFrame
     multiindex = pd.MultiIndex.from_frame(index)
     df = pd.DataFrame(data=values, index=multiindex)
@@ -37,6 +46,21 @@ def merge_soma_segments(index, values):
 
 
 def process_all_files(index, data_dir, output_dir):
+    """
+        Processes all membrane current value chunks in the directory and saves the results.
+
+        This function loops through all files in the specified directory that match the naming
+        convention `current_values_chunk_*.npy`, processes them to merge soma segments, and
+        saves the resulting values and index.
+
+        Parameters:
+            index (df): The multiindex DataFrame containing 'segment' and 'itype' columns.
+            data_dir (str): The directory containing `multiindex.csv` and the `.npy` value chunks.
+            output_dir (str): The directory where the processed files will be saved.
+
+        Returns:
+            None: Saves the processed chunks and the merged index to the output directory.
+        """
     global index_saved
 
     # Ensure output directory exists

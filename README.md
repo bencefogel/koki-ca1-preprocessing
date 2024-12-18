@@ -37,3 +37,7 @@ output_dir = "L:/cluster_seed30/preprocessed_data"
 ## **How to run**
 1. Configure the parameters as described above.
 2. Run the main preprocessing script (`merge_dataframes.py`)
+
+# Update:
+Added `merge_segment_data.py`
+- This script merges somatic segments into a single segment

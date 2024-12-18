@@ -7,9 +7,9 @@ def save_in_chunks(current_values, output_dir, chunk_size=None):
     Save the current_values array in chunks along the columns to the specified output directory.
 
     Parameters:
-    - current_values (numpy.ndarray): The array of numerical values to be saved.
-    - output_dir (str): The directory where the chunks will be saved.
-    - chunk_size (int): The number of columns to save per chunk (default is all columns).
+        current_values (numpy.ndarray): The array of numerical values to be saved.
+        output_dir (str): The directory where the chunks will be saved.
+        chunk_size (int): The number of columns to save per chunk (default is all columns).
     """
     os.makedirs(output_dir, exist_ok=True)
 
