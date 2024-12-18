@@ -42,13 +42,13 @@ gc.collect()
 df_im_combined = df_im_combined.fillna(0)
 df_im_combined.columns = df_im_combined.columns.astype(int)
 
+output_dir = "L:/cluster_seed30/preprocessed_data/membrane_currents"
 # Save multiindex as a dataframe
 index_df = pd.DataFrame(df_im_combined.index.tolist(), columns=['segment', 'itype'])
-output_dir = "L:/cluster_seed30/preprocessed_data"
 os.makedirs(output_dir, exist_ok=True)
 index_file = os.path.join(output_dir, "multiindex.csv")
 index_df.to_csv(index_file, index=False)
 
-# Save current values as an array
+# Save current values as arrays
 current_values = df_im_combined.values
 save_in_chunks(current_values, output_dir, chunk_size=20000)
