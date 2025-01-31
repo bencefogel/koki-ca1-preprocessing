@@ -4,7 +4,7 @@ import pandas as pd
 from dendrite_centric_preprocessing.merge_dendrite_iax import df_merged_dendritic_segment
 from utils import load_df
 
-def merge_dendritic_segment_imembrane(df: pd.DataFrame, section: str) -> pd.DataFrame:
+def merge_dendritic_section_imembrane(df: pd.DataFrame, section: str) -> pd.DataFrame:
     """
     Merges data for a specific dendritic section, summing  the values for each `itype` across the segments of the section
 
@@ -42,4 +42,4 @@ if __name__ == '__main__':
     df = load_df(index_fname, data_fname)
     segment = 'dend5_0111111111111111111'  # distal apical segment (close to the trunk, not a terminal branch)
 
-    df_merged_dendritic_segment = merge_dendritic_segment_imembrane(df, segment)
+    df_merged_dendritic_section = merge_dendritic_section_imembrane(df, segment)
