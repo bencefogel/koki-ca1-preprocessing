@@ -1,7 +1,5 @@
 import os
 import pandas as pd
-
-from dendrite_centric_preprocessing.merge_dendrite_iax import df_merged_dendritic_segment
 from utils import load_df
 
 def merge_dendritic_section_imembrane(df: pd.DataFrame, section: str) -> pd.DataFrame:

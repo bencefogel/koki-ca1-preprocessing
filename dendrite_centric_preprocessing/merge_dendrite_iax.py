@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import networkx as nx
-from utils import load_df, create_directed_graph, get_iax
+from utils import load_df, create_directed_graph
 
 
 def merge_dendritic_section_iax(df: pd.DataFrame, section: str) -> pd.DataFrame:
